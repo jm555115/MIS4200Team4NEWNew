@@ -11,6 +11,7 @@ using MIS4200Team4New.Models;
 
 namespace MIS4200Team4New.Controllers
 {
+    [Authorize]
     public class NominationsController : Controller
     {
         private MIS4200Team4Context db = new MIS4200Team4Context();
@@ -40,7 +41,7 @@ namespace MIS4200Team4New.Controllers
         // GET: Nominations/Create
         public ActionResult Create()
         {
-            ViewBag.userID = new SelectList(db.UserProfile, "userID", "firstName");
+            ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName");
             return View();
         }
 
@@ -59,7 +60,7 @@ namespace MIS4200Team4New.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.userID = new SelectList(db.UserProfile, "userID", "firstName", nomination.userID);
+            ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName", nomination.userID);
             return View(nomination);
         }
 
@@ -75,7 +76,7 @@ namespace MIS4200Team4New.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.userID = new SelectList(db.UserProfile, "userID", "firstName", nomination.userID);
+            ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName", nomination.userID);
             return View(nomination);
         }
 
@@ -88,11 +89,12 @@ namespace MIS4200Team4New.Controllers
         {
             if (ModelState.IsValid)
             {
+                nomination.DateOfRecognition = DateTime.Now;
                 db.Entry(nomination).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.userID = new SelectList(db.UserProfile, "userID", "firstName", nomination.userID);
+            ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName", nomination.userID);
             return View(nomination);
         }
 

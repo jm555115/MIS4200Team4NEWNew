@@ -11,10 +11,13 @@ using MIS4200Team4New.Models;
 
 namespace MIS4200Team4New.Controllers
 {
+    [Authorize]
+
     public class UserProfilesController : Controller
     {
         private MIS4200Team4Context db = new MIS4200Team4Context();
 
+        
         // GET: UserProfiles
         public ActionResult Index()
         {

@@ -18,20 +18,20 @@
         @Html.HiddenFor(model => model.RecognitionId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.userID, "userID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.userID, "Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("userID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.DateOfRecognition, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DateOfRecognition, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateOfRecognition, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.comments, htmlAttributes: new { @class = "control-label col-md-2" })

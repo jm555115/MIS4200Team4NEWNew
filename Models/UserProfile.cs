@@ -12,12 +12,19 @@ namespace MIS4200Team4New.Models
        
         [Key]
         public Guid userID { get; set; }
-        [Display(Name = "First Name")]
+
+        [Required]
+        [Display(Name = "First Name")]    
         public string firstName { get; set; }
+
+        [Required]
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
+
+        [Required]
         [Display(Name = "E-Mail")]
         public string email { get; set; }
+        [Display(Name = "Name")]
         public string fullName { get { return lastName + ", " + firstName; } }
         [Display(Name = "Total Nominations")]
         public int numberOfNominations { get; set; }
