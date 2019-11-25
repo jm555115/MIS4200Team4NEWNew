@@ -16,7 +16,6 @@ namespace MIS4200Team4New.Controllers
         private MIS4200Team4Context db = new MIS4200Team4Context();
 
         // GET: UserProfiles
-        [Authorize]
         public ActionResult Index()
         {
             return View(db.UserProfile.ToList());
@@ -48,7 +47,7 @@ namespace MIS4200Team4New.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,email")] UserProfile userProfile)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,email,numberOfNominations")] UserProfile userProfile)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +80,7 @@ namespace MIS4200Team4New.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,email")] UserProfile userProfile)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,email,numberOfNominations")] UserProfile userProfile)
         {
             if (ModelState.IsValid)
             {

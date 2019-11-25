@@ -16,7 +16,6 @@ namespace MIS4200Team4New.Controllers
         private MIS4200Team4Context db = new MIS4200Team4Context();
 
         // GET: Nominations
-        [Authorize]
         public ActionResult Index()
         {
             var nomination = db.Nomination.Include(n => n.UserProfile);
@@ -41,7 +40,7 @@ namespace MIS4200Team4New.Controllers
         // GET: Nominations/Create
         public ActionResult Create()
         {
-            ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName");
+            ViewBag.userID = new SelectList(db.UserProfile, "userID", "firstName");
             return View();
         }
 
@@ -50,10 +49,11 @@ namespace MIS4200Team4New.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecognitionId,userID,DateOfRecognition,award")] Nomination nomination)
+        public ActionResult Create([Bind(Include = "RecognitionId,userID,DateOfRecognition,comments,award")] Nomination nomination)
         {
             if (ModelState.IsValid)
             {
+                nomination.DateOfRecognition = DateTime.Now;
                 db.Nomination.Add(nomination);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace MIS4200Team4New.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RecognitionId,userID,DateOfRecognition,award")] Nomination nomination)
+        public ActionResult Edit([Bind(Include = "RecognitionId,userID,DateOfRecognition,comments,award")] Nomination nomination)
         {
             if (ModelState.IsValid)
             {

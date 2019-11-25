@@ -7,9 +7,10 @@ using System.Web;
 
 namespace MIS4200Team4New.Models
 {
+
     public class Nomination
     {
-
+       
         [System.ComponentModel.DataAnnotations.Key] // the data annotation is necessary because there is a field called, ID,
               // in the table and it is not the PK for the record
         [Display(Name = "Recognition Number")]
@@ -20,13 +21,11 @@ namespace MIS4200Team4New.Models
         [ForeignKey(name: "userID")]
         public virtual UserProfile UserProfile { get; set; }
 
-        [Required]
         [Display(Name = "Date of Recognition")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime DateOfRecognition { get; set; }
-
-        public ICollection<UserProfile> UserProfiles { get; set; }
-
+        [Display(Name = "Comments")]
+        public string comments { get; set; }
         //…
         [Required]
         [Display(Name = "Core Value")]

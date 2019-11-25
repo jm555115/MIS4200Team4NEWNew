@@ -6,8 +6,10 @@ using System.Web;
 
 namespace MIS4200Team4New.Models
 {
+    
     public class UserProfile
     {
+       
         [Key]
         public Guid userID { get; set; }
         [Display(Name = "First Name")]

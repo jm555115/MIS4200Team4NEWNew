@@ -241,21 +241,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Nominations\Create.cshtml" />
-    <Content Include="Views\Nominations\Delete.cshtml" />
-    <Content Include="Views\Nominations\Details.cshtml" />
-    <Content Include="Views\Nominations\Edit.cshtml" />
-    <Content Include="Views\Nominations\Index.cshtml" />
-    <Content Include="Views\userDetails\Create.cshtml" />
-    <Content Include="Views\userDetails\Delete.cshtml" />
-    <Content Include="Views\userDetails\Details.cshtml" />
-    <Content Include="Views\userDetails\Edit.cshtml" />
-    <Content Include="Views\userDetails\Index.cshtml" />
     <Content Include="Views\UserProfiles\Create.cshtml" />
     <Content Include="Views\UserProfiles\Delete.cshtml" />
     <Content Include="Views\UserProfiles\Details.cshtml" />
     <Content Include="Views\UserProfiles\Edit.cshtml" />
     <Content Include="Views\UserProfiles\Index.cshtml" />
+    <Content Include="Views\Nominations\Create.cshtml" />
+    <Content Include="Views\Nominations\Delete.cshtml" />
+    <Content Include="Views\Nominations\Details.cshtml" />
+    <Content Include="Views\Nominations\Edit.cshtml" />
+    <Content Include="Views\Nominations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
