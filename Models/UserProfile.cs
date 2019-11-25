@@ -17,7 +17,8 @@ namespace MIS4200Team4New.Models
         [Display(Name = "E-Mail")]
         public string email { get; set; }
         public string fullName { get { return lastName + ", " + firstName; } }
-
+        [Display(Name = "Total Nominations")]
+        public int numberOfNominations { get; set; }
         public ICollection<Nomination> Nominations { get; set; }
 
     }
