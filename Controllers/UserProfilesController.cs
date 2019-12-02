@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Team4New.DAL;
 using MIS4200Team4New.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Team4New.Controllers
 {
@@ -54,10 +55,22 @@ namespace MIS4200Team4New.Controllers
         {
             if (ModelState.IsValid)
             {
-                userProfile.userID = Guid.NewGuid();
+                Guid userID;
+                Guid.TryParse(User.Identity.GetUserId(), out userID);
+                userProfile.userID = userID;
                 db.UserProfile.Add(userProfile);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //userProfile.userID = Guid.NewGuid();
+                //db.UserProfile.Add(userProfile);
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    return View("DuplicateUser");
+                }   
+               
             }
 
             return View(userProfile);
