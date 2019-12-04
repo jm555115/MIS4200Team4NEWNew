@@ -55,24 +55,20 @@ namespace MIS4200Team4New.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid userID;
-                Guid.TryParse(User.Identity.GetUserId(), out userID);
-                userProfile.userID = userID;
-                db.UserProfile.Add(userProfile);
-                //userProfile.userID = Guid.NewGuid();
-                //db.UserProfile.Add(userProfile);
-                try
-                {
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch (Exception)
-                {
-                    return View("DuplicateUser");
-                }   
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userProfile.userID = memberID;
+                db.UserProfile.Add(userProfile);            
+                db.SaveChanges();
+                var nom = db.Nomination.Where(n => n.userID == userProfile.userID);
+                var nomList = nom.ToList();
+                ViewBag.nom = nomList.ToList();
+                var totalCount = nomList.Count();
+                ViewBag.total = totalCount; 
+                return RedirectToAction("Index");   
                
             }
-
+            
             return View(userProfile);
         }
 

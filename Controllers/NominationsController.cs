@@ -57,9 +57,10 @@ namespace MIS4200Team4New.Controllers
                 nomination.DateOfRecognition = DateTime.Now;
                 db.Nomination.Add(nomination);
                 db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
-
+            
             ViewBag.userID = new SelectList(db.UserProfile, "userID", "fullName", nomination.userID);
             return View(nomination);
         }
