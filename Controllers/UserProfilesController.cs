@@ -33,6 +33,11 @@ namespace MIS4200Team4New.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             UserProfile userProfile = db.UserProfile.Find(id);
+            var nom = db.Nomination.Where(n => n.userID == userProfile.userID);
+            var nomList = nom.ToList();
+            ViewBag.nom = nomList.ToList();
+            var totalCount = nomList.Count();
+            ViewBag.total = totalCount;
             if (userProfile == null)
             {
                 return HttpNotFound();
@@ -60,11 +65,7 @@ namespace MIS4200Team4New.Controllers
                 userProfile.userID = memberID;
                 db.UserProfile.Add(userProfile);            
                 db.SaveChanges();
-                var nom = db.Nomination.Where(n => n.userID == userProfile.userID);
-                var nomList = nom.ToList();
-                ViewBag.nom = nomList.ToList();
-                var totalCount = nomList.Count();
-                ViewBag.total = totalCount; 
+                
                 return RedirectToAction("Index");   
                
             }

@@ -39,7 +39,12 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.numberOfNominations)
+            @*@Html.DisplayFor(model => model.numberOfNominations)*@
+            @{
+                var total = ViewBag.total;
+                 @total
+            }
+
         </dd>
 
     </dl>
