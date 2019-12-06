@@ -253,6 +253,11 @@
     <Content Include="Views\Nominations\Edit.cshtml" />
     <Content Include="Views\Nominations\Index.cshtml" />
     <Content Include="Views\UserProfiles\DuplicateUser.cshtml" />
+    <Content Include="Views\Leaderboard\Create.cshtml" />
+    <Content Include="Views\Leaderboard\Delete.cshtml" />
+    <Content Include="Views\Leaderboard\Details.cshtml" />
+    <Content Include="Views\Leaderboard\Edit.cshtml" />
+    <Content Include="Views\Leaderboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
