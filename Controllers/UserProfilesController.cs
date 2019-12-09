@@ -18,10 +18,19 @@ namespace MIS4200Team4New.Controllers
     {
         private MIS4200Team4Context db = new MIS4200Team4Context();
 
-        
+
         // GET: UserProfiles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var testusers = from u in db.UserProfile select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testusers = testusers.Where(u =>
+                u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
+                return View(testusers.ToList());
+            }
+       
+
             return View(db.UserProfile.ToList());
         }
 
