@@ -144,8 +144,17 @@ namespace MIS4200Team4New.Controllers
         {
             UserProfile userProfile = db.UserProfile.Find(id);
             db.UserProfile.Remove(userProfile);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+
+                return View("DeleteConfirmed");
+            }
+           
         }
 
         protected override void Dispose(bool disposing)

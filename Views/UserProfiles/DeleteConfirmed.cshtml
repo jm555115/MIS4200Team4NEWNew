@@ -1,15 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "DuplicateUser";
+    ViewBag.Title = "DeleteConfirmed";
 }
-
-<h2>Duplicate User</h2>
+<h2>Delete Error</h2>
 <br />
 <br />
 <div class="alert alert-danger">
     <h2>Not Allowed</h2>
-    That user already exists - request not saved
+    You cannot delete a user who has a nomination. 
 </div>
 <br />
 @Html.ActionLink("Return to home", "index", "home")
+
+
 

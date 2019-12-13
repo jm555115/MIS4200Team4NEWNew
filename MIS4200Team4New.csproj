@@ -258,6 +258,7 @@
     <Content Include="Views\Leaderboard\Details.cshtml" />
     <Content Include="Views\Leaderboard\Edit.cshtml" />
     <Content Include="Views\Leaderboard\Index.cshtml" />
+    <Content Include="Views\UserProfiles\DeleteConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
